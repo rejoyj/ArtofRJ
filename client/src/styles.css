@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-body bg-stone-950 text-stone-200 min-h-screen;
+}
+
+.prose-copy p {
+  @apply leading-8 text-stone-300;
+}
+
+.prose-copy h2,
+.prose-copy h3 {
+  @apply font-serifDisplay text-3xl text-amber-100 mt-8 mb-3;
+}
