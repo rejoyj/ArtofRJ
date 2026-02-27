@@ -36,7 +36,14 @@ Update values in `server/.env`.
 > Generate password hash for `ADMIN_PASSWORD_HASH`:
 
 ```bash
+
 cd server
+cd server
+
+cd server
+ main
+ main
+main
 node -e "import bcrypt from 'bcryptjs'; bcrypt.hash('your-admin-password', 10).then(console.log)"
 ```
 
@@ -65,6 +72,7 @@ Backend: `http://localhost:5000`
 - `GET /api/posts/:id`
 - `POST /api/posts` (admin token required, multipart form)
 
+ main
 ## Common local issues
 
 ### "Invalid credentials"
@@ -79,6 +87,7 @@ Backend: `http://localhost:5000`
 - A favicon is included at `client/public/favicon.svg`.
 - Hard-refresh browser cache (`Ctrl+Shift+R`) if old requests still appear.
 
+
 ## Final pre-deploy check (recommended)
 
 Run this from repo root before pushing to Vercel:
@@ -91,6 +100,10 @@ This checks:
 - `client/package.json` and `server/package.json` are valid JSON
 - no unresolved Git merge markers (`<<<<<<<`, `=======`, `>>>>>>>`) remain in `client/` or `server/`
 - frontend production build succeeds
+
+
+
+ main
 
 ## Deploy backend to Render
 
