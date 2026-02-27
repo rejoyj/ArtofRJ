@@ -41,9 +41,7 @@ cd server
 cd server
 
 cd server
- main
- main
-main
+ 
 node -e "import bcrypt from 'bcryptjs'; bcrypt.hash('your-admin-password', 10).then(console.log)"
 ```
 
@@ -72,7 +70,7 @@ Backend: `http://localhost:5000`
 - `GET /api/posts/:id`
 - `POST /api/posts` (admin token required, multipart form)
 
- main
+ 
 ## Common local issues
 
 ### "Invalid credentials"
@@ -103,7 +101,7 @@ This checks:
 
 
 
- main
+
 
 ## Deploy backend to Render
 

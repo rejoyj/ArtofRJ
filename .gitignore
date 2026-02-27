@@ -13,8 +13,7 @@ node_modules
 !server/.env.example
 !client/.env.example
 
- main
- main
+
 
 client/dist
 server/uploads/*
