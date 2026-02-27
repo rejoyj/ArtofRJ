@@ -36,7 +36,12 @@ Update values in `server/.env`.
 > Generate password hash for `ADMIN_PASSWORD_HASH`:
 
 ```bash
+
 cd server
+cd server
+
+cd server
+ 
 node -e "import bcrypt from 'bcryptjs'; bcrypt.hash('your-admin-password', 10).then(console.log)"
 ```
 
@@ -65,6 +70,7 @@ Backend: `http://localhost:5000`
 - `GET /api/posts/:id`
 - `POST /api/posts` (admin token required, multipart form)
 
+ 
 ## Common local issues
 
 ### "Invalid credentials"
@@ -79,11 +85,6 @@ Backend: `http://localhost:5000`
 - A favicon is included at `client/public/favicon.svg`.
 - Hard-refresh browser cache (`Ctrl+Shift+R`) if old requests still appear.
 
-### Blank screen with `ReferenceError: main is not defined`
-
-- This usually means a broken deploy artifact (stale build or unresolved merge markers in shipped JS).
-- Run `npm run verify` locally to catch merge markers and JSON issues before deploy.
-- Redeploy Vercel from the latest successful commit after verification.
 
 ## Final pre-deploy check (recommended)
 
@@ -97,6 +98,10 @@ This checks:
 - `client/package.json` and `server/package.json` are valid JSON
 - no unresolved Git merge markers (`<<<<<<<`, `=======`, `>>>>>>>`) remain in `client/` or `server/`
 - frontend production build succeeds
+
+
+
+
 
 ## Deploy backend to Render
 
