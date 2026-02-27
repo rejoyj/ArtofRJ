@@ -57,7 +57,6 @@ export default function AdminPage() {
     }
   };
 
- codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
   const handleLogout = () => {
     setAuthToken(null);
     setIsLoggedIn(false);
