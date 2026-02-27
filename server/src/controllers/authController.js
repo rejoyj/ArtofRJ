@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export const adminLogin = async (req, res) => {
-codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
   const email = req.body.email?.trim().toLowerCase();
   const password = req.body.password;
 
@@ -35,6 +34,7 @@ codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
 
   return res.json({ token });
 };
+
 
   try {
     const { email, password } = req.body;
@@ -85,4 +85,4 @@ codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
     return res.status(500).json({ message: 'Server error.' });
   }
 };
- main
+ 

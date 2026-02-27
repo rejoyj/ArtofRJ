@@ -5,6 +5,12 @@
   "scripts": {
     "install:all": "npm install --prefix server && npm install --prefix client",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+
+    "build": "npm run build --prefix client",
+    "verify:json": "node -e \"JSON.parse(require('fs').readFileSync('client/package.json','utf8')); JSON.parse(require('fs').readFileSync('server/package.json','utf8')); console.log('package.json files are valid')\"",
+    "verify:conflicts": "rg -n \"^(<<<<<<<|=======|>>>>>>>)\" client server || echo 'No merge markers found'",
+    "verify": "npm run verify:json && npm run verify:conflicts && npm run build --prefix client"
+
     "build": "npm run build --prefix client"
   },
   "devDependencies": {

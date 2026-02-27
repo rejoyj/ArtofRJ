@@ -36,13 +36,14 @@ Update values in `server/.env`.
 > Generate password hash for `ADMIN_PASSWORD_HASH`:
 
 ```bash
- codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
+
+cd server
 cd server
 
-codex/create-full-blog-page-with-react-and-tailwind-nractx
 cd server
  main
  main
+main
 node -e "import bcrypt from 'bcryptjs'; bcrypt.hash('your-admin-password', 10).then(console.log)"
 ```
 
@@ -71,8 +72,6 @@ Backend: `http://localhost:5000`
 - `GET /api/posts/:id`
 - `POST /api/posts` (admin token required, multipart form)
 
-codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
- codex/create-full-blog-page-with-react-and-tailwind-nractx
  main
 ## Common local issues
 
@@ -88,10 +87,24 @@ codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
 - A favicon is included at `client/public/favicon.svg`.
 - Hard-refresh browser cache (`Ctrl+Shift+R`) if old requests still appear.
 
- codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
+
+## Final pre-deploy check (recommended)
+
+Run this from repo root before pushing to Vercel:
+
+```bash
+npm run verify
+```
+
+This checks:
+- `client/package.json` and `server/package.json` are valid JSON
+- no unresolved Git merge markers (`<<<<<<<`, `=======`, `>>>>>>>`) remain in `client/` or `server/`
+- frontend production build succeeds
+
+
 
  main
-main
+
 ## Deploy backend to Render
 
 1. Push repo to GitHub.

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+
     "artofrj-blog-platform": "file:..",
     "axios": "^1.7.9",
     "lucide-react": "^0.474.0",
