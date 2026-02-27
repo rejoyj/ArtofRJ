@@ -57,6 +57,15 @@ export default function AdminPage() {
     }
   };
 
+ codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
+  const handleLogout = () => {
+    setAuthToken(null);
+    setIsLoggedIn(false);
+    setStatus('Logged out successfully.');
+    setForm(initialForm);
+  };
+
+ main
   if (!isLoggedIn) {
     return (
       <section className="mx-auto max-w-md rounded-3xl border border-amber-900/30 bg-stone-900/60 p-8">
@@ -74,8 +83,20 @@ export default function AdminPage() {
 
   return (
     <section className="mx-auto max-w-3xl rounded-3xl border border-amber-900/30 bg-stone-900/60 p-8">
+ codex/create-full-blog-page-with-react-and-tailwind-jcwq1q
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 className="font-serifDisplay text-4xl text-amber-100">Compose a New Blog</h1>
+          <p className="mt-2 text-sm text-stone-400">Publish your words and visuals. Readers can only view what you share.</p>
+        </div>
+        <button onClick={handleLogout} type="button" className="rounded-xl border border-amber-700 px-4 py-2 text-sm font-semibold text-amber-200 hover:bg-amber-900/30">
+          Logout
+        </button>
+      </div>
+
       <h1 className="font-serifDisplay text-4xl text-amber-100">Compose a New Blog</h1>
       <p className="mt-2 text-sm text-stone-400">Publish your words and visuals. Readers can only view what you share.</p>
+ main
       <form onSubmit={handleCreatePost} className="mt-8 space-y-4">
         <input className="w-full rounded-xl border border-stone-700 bg-stone-800 p-3" placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
         <textarea className="w-full rounded-xl border border-stone-700 bg-stone-800 p-3" rows="3" placeholder="Excerpt" value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} />
