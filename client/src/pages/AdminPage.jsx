@@ -75,25 +75,13 @@ export default function AdminPage() {
   };
 
   const handleDeletePost = async (postId) => {
-    if (!postId) {
-      setStatus('This post is missing an id, so it cannot be deleted.');
-      return;
-    }
-
     setStatus('Deleting post...');
 
     try {
       await api.delete(`/posts/${postId}`);
-      setPosts((currentPosts) => currentPosts.filter((post) => (post._id || post.id) !== postId));
+      setPosts((currentPosts) => currentPosts.filter((post) => post._id !== postId));
       setStatus('Post deleted successfully.');
     } catch (error) {
-      const statusCode = error.response?.status;
-
-      if (statusCode === 404) {
-        setStatus('Delete endpoint is not available on the current server deployment (404). Please redeploy the backend with DELETE /api/posts/:id support.');
-        return;
-      }
-
       setStatus(error.response?.data?.message || 'Could not delete post.');
     }
   };
@@ -164,25 +152,21 @@ export default function AdminPage() {
       <div className="mt-10">
         <h2 className="font-serifDisplay text-3xl text-amber-100">Manage Posts</h2>
         <div className="mt-4 space-y-3">
-          {posts.map((post) => {
-            const postId = post._id || post.id;
-
-            return (
-              <article key={postId} className="rounded-xl border border-stone-700 bg-stone-900/70 p-4">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h3 className="text-lg font-semibold text-amber-100">{post.title}</h3>
-                  <div className="flex items-center gap-2">
-                    <button type="button" onClick={() => handleSharePost(postId)} className="rounded-lg border border-amber-700 px-3 py-1.5 text-sm text-amber-200 hover:bg-amber-900/30">
-                      Share
-                    </button>
-                    <button type="button" onClick={() => handleDeletePost(postId)} className="rounded-lg border border-rose-700 px-3 py-1.5 text-sm text-rose-200 hover:bg-rose-900/30">
-                      Delete
-                    </button>
-                  </div>
+          {posts.map((post) => (
+            <article key={post._id} className="rounded-xl border border-stone-700 bg-stone-900/70 p-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h3 className="text-lg font-semibold text-amber-100">{post.title}</h3>
+                <div className="flex items-center gap-2">
+                  <button type="button" onClick={() => handleSharePost(post._id)} className="rounded-lg border border-amber-700 px-3 py-1.5 text-sm text-amber-200 hover:bg-amber-900/30">
+                    Share
+                  </button>
+                  <button type="button" onClick={() => handleDeletePost(post._id)} className="rounded-lg border border-rose-700 px-3 py-1.5 text-sm text-rose-200 hover:bg-rose-900/30">
+                    Delete
+                  </button>
                 </div>
-              </article>
-            );
-          })}
+              </div>
+            </article>
+          ))}
           {!posts.length && <p className="text-sm text-stone-400">No posts available yet.</p>}
         </div>
       </div>
