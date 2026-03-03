@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import multer from 'multer';
-import { createPost, getPostById, getPosts } from '../controllers/postController.js';
+import { createPost, deletePost, getPostById, getPosts } from '../controllers/postController.js';
 import { protectAdmin } from '../middleware/auth.js';
 
 const router = Router();
@@ -27,5 +27,6 @@ const upload = multer({
 router.get('/', getPosts);
 router.get('/:id', getPostById);
 router.post('/', protectAdmin, upload.single('coverImage'), createPost);
+router.delete('/:id', protectAdmin, deletePost);
 
 export default router;
